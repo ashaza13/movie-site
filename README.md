@@ -1,3 +1,8 @@
 # movie-site
-Currently working on:
- Visual representation of movie recommendation engine
+## Visual representation of movie recommendation engine
+
+- Flask
+- SQL
+- HTML
+- CSS
+- Bootstrap
