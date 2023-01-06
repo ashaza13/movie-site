@@ -5,12 +5,30 @@
 {% endblock %}
 
 {% block main %}
-    {% for val in result %}
+    <div class="container">
+        <form action="/" method="post">
+            <div class="input-group input-group-md">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
 
-    <ul class="list-group">
-        <li class="list-group-item">{{ val.title }}</li>
-      </ul>
-
-    {% endfor %}
+        <div class="row">
+            {% for val in result %}
+            {% if val.adult == False %}
+            <div class="col">
+                <div class="card" style="width: 12rem;">
+                    <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ val.title }}</h5>
+                      <p class="card-text">{{ val.overview }}</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
 {% endblock %}

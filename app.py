@@ -22,6 +22,6 @@ def index():
     else:
         # Find a list of similar movies
         result = find_similar(request.form.get("movie"))
-        print(result)
+        
         return render_template("results.html", result=result)
 
