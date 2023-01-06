@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    {% for val in result %}
+
+    <ul class="list-group">
+        <li class="list-group-item">{{ val.title }}</li>
+      </ul>
+
+    {% endfor %}
+
+{% endblock %}

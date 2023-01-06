@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Log In
+    Home
 {% endblock %}
 
 {% block main %}
-    <form action="/login" method="post">
+    <form action="/" method="post">
         <div class="input-group input-group-md">
-            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story 1995" name="movie">
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
             <button class="btn btn-primary" type="submit">Search</button>
         </div>
     </form>

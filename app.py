@@ -1,14 +1,9 @@
 import os
 
-import sqlite3
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
-import pandas as pd
-import re
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
+from helpers import find_similar
 
 # Configure application 
 app = Flask(__name__)
@@ -24,6 +19,9 @@ app.config["SESSION_TYPE"] = "filesystem"
 def index():
     if request.method == "GET":
         return render_template("index.html")
-    
     else:
-        
+        # Find a list of similar movies
+        result = find_similar(request.form.get("movie"))
+        print(result)
+        return render_template("results.html", result=result)
+
