@@ -6,3 +6,4 @@
 - HTML
 - CSS
 - Bootstrap
+- React
