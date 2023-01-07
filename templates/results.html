@@ -6,29 +6,33 @@
 
 {% block main %}
     <div class="container">
-        <form action="/" method="post">
-            <div class="input-group input-group-md">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
-                <button class="btn btn-primary" type="submit">Search</button>
-            </div>
-        </form>
-
-        <div class="row">
-            {% for val in result %}
-            {% if val.adult == False %}
-            <div class="col">
-                <div class="card" style="width: 12rem;">
-                    <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ val.title }}</h5>
-                      <p class="card-text">{{ val.overview }}</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+        <div class="pb-4">
+            <form action="/" method="post">
+                <div class="input-group input-group-md">
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </div>
-            </div>
-            {% endif %}
-            {% endfor %}
+            </form>
         </div>
+        
+        {% for val in result %}
+        {% if val.adult == False %}
+        <div class=" card mb-3 shadow-sm" style="max-width: 900px; max-height: 125px;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img img-fluid rounded-start float-left" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ val.title }}</h5>
+                  <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>     
+                  <p class="card-text text-truncate">{{ val.overview }}</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
 
 {% endblock %}

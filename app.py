@@ -4,6 +4,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from helpers import find_similar
+from datetime import datetime
 
 # Configure application 
 app = Flask(__name__)
@@ -22,6 +23,14 @@ def index():
     else:
         # Find a list of similar movies
         result = find_similar(request.form.get("movie"))
-        
+
+        print(result)
+        for i in range(len(result)):
+            if result[i].release_date != '':
+                date_object = datetime.strptime(result[i].release_date, '%Y-%m-%d')
+                string_date = date_object.strftime('%B %d, %Y')
+                result[i].release_date = string_date
+            
+
         return render_template("results.html", result=result)
 

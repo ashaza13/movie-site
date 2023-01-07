@@ -10,6 +10,6 @@ def find_similar(movie_title):
 
     movie = Movie()
     search = movie.search(movie_title)
-    similar = movie.similar(search[0].id)
     
-    return similar
+
+    return search

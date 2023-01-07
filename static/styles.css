@@ -26,3 +26,9 @@ nav .navbar-brand .white
 {
     color: white;
 }
+
+.card-img {
+    width: 30%;
+    height: 8vw;
+    object-fit: cover;
+}
