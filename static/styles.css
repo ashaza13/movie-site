@@ -27,8 +27,15 @@ nav .navbar-brand .white
     color: white;
 }
 
-.card-img {
-    width: 30%;
-    height: 8vw;
-    object-fit: cover;
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: .05rem;
+    height: .5rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(27, 27, 27, .4);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
 }

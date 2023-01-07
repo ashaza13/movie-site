@@ -7,11 +7,58 @@
 {% block main %}
     <div class="container">
         <form action="/" method="post">
-            <div class="input-group input-group-md">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
-                <button class="btn btn-primary" type="submit">Search</button>
+            <div class="input-group input-group-md pb-4 rounded-pill">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Search for a movie..." name="movie">
+                <button class="btn btn-dark btn-ripple" type="submit">Search</button>
             </div>
         </form>
+        
+        <div class="row pb-4">
+            <div class="col-md-auto">
+                <h5>What's Popular</h5>
+            </div>
+            <div class="col-md-auto">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-dark btn-sm">Popular</button>
+                    <button type="button" class="btn btn-light btn-sm">Top Rated</button>
+                    <button type="button" class="btn btn-light btn-sm">Now Playing</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row flex-row flex-nowrap overflow-auto">
+            {% for val in popular %}
+            <div class="col-auto mb-3">
+                <div class="card" style="width: 7rem; border: 0;">
+                    <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
+                    <div class="card-body text-wrap" style="width:7rem;">
+                      <h6>{{ val.title }}</h6>
+                      <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row pb-4 pt-4">
+            <div class="col-md-auto">
+                <h5>Upcoming</h5>
+            </div>
+        </div>
+
+        <div class="row flex-row flex-nowrap overflow-auto">
+            {% for val in upcoming %}
+            <div class="col-auto mb-3">
+                <div class="card" style="width: 7rem; border: 0;">
+                    <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
+                    <div class="card-body text-wrap" style="width:7rem;">
+                      <h6>{{ val.title }}</h6>
+                      <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 
 {% endblock %}
