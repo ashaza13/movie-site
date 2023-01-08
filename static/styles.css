@@ -39,3 +39,7 @@ nav .navbar-brand .white
 ::-webkit-scrollbar-track{
     background: transparent;
 }
+
+.my-button:not(:disabled):not(:disabled):active {
+    background-color: green;
+ } 

@@ -3,7 +3,7 @@ import os
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
-from helpers import find_similar, get_trending, get_upcoming
+from helpers import find_similar, get_trending, get_upcoming, get_nowplaying, get_toprated
 from datetime import datetime
 
 # Configure application 
@@ -23,21 +23,11 @@ app.config["SESSION_TYPE"] = "filesystem"
 def index():
     if request.method == "GET":
         popular = get_trending()
-        for i in range(len(popular)):
-            if popular[i].release_date != '':
-                date_object = datetime.strptime(popular[i].release_date, DATE_UNFORMATTED)
-                string_date = date_object.strftime(DATE_FORMATTED)
-                popular[i].release_date = string_date
-        
         upcoming = get_upcoming()
-        for i in range(len(upcoming)):
-            if upcoming[i].release_date != '':
-                date_object = datetime.strptime(upcoming[i].release_date, DATE_UNFORMATTED)
-                string_date = date_object.strftime(DATE_FORMATTED)
-                upcoming[i].release_date = string_date
+        top = get_toprated()
+        now = get_nowplaying()
 
-
-        return render_template("index.html", popular=popular, upcoming=upcoming)
+        return render_template("index.html", popular=popular, upcoming=upcoming, top=top, now=now)
     else:
         # Find a list of similar movies
         result = find_similar(request.form.get("movie"))
