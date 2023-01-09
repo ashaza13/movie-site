@@ -37,7 +37,15 @@ def index():
                 date_object = datetime.strptime(result[i].release_date, DATE_UNFORMATTED)
                 string_date = date_object.strftime(DATE_FORMATTED)
                 result[i].release_date = string_date
-            
+        
+        movie_name = request.form.get("movie")
 
-        return render_template("results.html", result=result)
+        return render_template("results.html", result=result, movie_name=movie_name)
 
+@app.route("/movie", methods=["GET", "POST"])
+def movie():
+    return render_template("movie.html")
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run()

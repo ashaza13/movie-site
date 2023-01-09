@@ -7,39 +7,39 @@
 {% block main %}
     <div class="container">
         <form action="/" method="post">
-            <div class="input-group input-group-md pb-4 rounded-pill">
+            <div class="input-group input-group-md pb-3 rounded-pill">
                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Search for a movie..." name="movie">
                 <button class="btn btn-dark btn-ripple" type="submit">Search</button>
             </div>
         </form>
         
-        <div class="row pb-4">
+        <div class="row pb-3">
             <div class="col-md-auto">
-                <h5>What's Popular</h5>
+                <h4>What's Popular</h4>
             </div>
             <div class="col-md-auto">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Popular</button>
+                      <button class="nav-link nav-link-small active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-popular" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Popular</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="pills-top-tab" data-bs-toggle="pill" data-bs-target="#pills-top" type="button" role="tab" aria-controls="pills-top" aria-selected="false">Top Rated</button>
+                      <button class="nav-link nav-link-small" id="pills-top-tab" data-bs-toggle="pill" data-bs-target="#pills-top" type="button" role="tab" aria-controls="pills-top" aria-selected="false">Top Rated</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="pills-now-tab" data-bs-toggle="pill" data-bs-target="#pills-now" type="button" role="tab" aria-controls="pills-now" aria-selected="false">Now Playing</button>
+                      <button class="nav-link nav-link-small" id="pills-now-tab" data-bs-toggle="pill" data-bs-target="#pills-now" type="button" role="tab" aria-controls="pills-now" aria-selected="false">Now Playing</button>
                     </li>
-                  </ul>
+                </ul>
             </div>
         </div>
 
-        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-content right-bg" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-popular" role="tabpanel" aria-labelledby="pills-popular-tab">
                 <div class="row flex-row flex-nowrap overflow-auto"> 
                     {% for val in popular %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
-                            <div class="card-body text-wrap" style="width:7rem;">
+                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <div class="card-body text-wrap" style="width:9.5rem;">
                               <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
@@ -54,8 +54,8 @@
                     {% for val in top %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
-                            <div class="card-body text-wrap" style="width:7rem;">
+                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <div class="card-body text-wrap" style="width:9.5rem;">
                               <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
@@ -70,8 +70,8 @@
                     {% for val in now %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
-                            <div class="card-body text-wrap" style="width:7rem;">
+                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <div class="card-body text-wrap" style="width:9.5rem;">
                               <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
@@ -81,26 +81,25 @@
                 </div>
             </div>
 
-        </div>
-
-        <div class="row pb-4 pt-4">
-            <div class="col-md-auto">
-                <h5>Upcoming</h5>
-            </div>
-        </div>
-
-        <div class="row flex-row flex-nowrap overflow-auto">
-            {% for val in upcoming %}
-            <div class="col-auto mb-3">
-                <div class="card" style="width: 9.5rem; border: 0;">
-                    <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="...">
-                    <div class="card-body text-wrap" style="width:7rem;">
-                      <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
-                      <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
-                    </div>
+            <div class="row pb-3 pt-3">
+                <div class="col-md-auto">
+                    <h4>Upcoming</h4>
                 </div>
             </div>
-            {% endfor %}
+    
+            <div class="row flex-row flex-nowrap overflow-auto">
+                {% for val in upcoming %}
+                <div class="col-auto mb-3">
+                    <div class="card" style="width: 9.5rem; border: 0;">
+                        <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                        <div class="card-body text-wrap" style="width:9.5rem;">
+                          <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
+                          <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

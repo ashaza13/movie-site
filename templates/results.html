@@ -1,40 +1,43 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Log In
+Results
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <div class="pb-4">
-            <form action="/" method="post">
-                <div class="input-group input-group-md">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Ex: Toy Story" name="movie">
-                    <button class="btn btn-dark btn-ripple" type="submit">Search</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-md-auto">
-          {% for val in result %}
-          {% if val.adult == False %}
-          <div class="card mb-3 shadow-sm" style="max-width: 75%">
-              <div class="row no-gutters">
-                <div class="col-md-2 embed-responsive embed-responsive-16by9 embed-responsive-item" style="width: 12%;">
-                  <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img img-fluid" alt="...">
-                </div>
-                <div class="col-md-10">
-                  <div class="card-body">
-                    <h5><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h5>
-                    <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>     
-                    <p class="card-text text-truncate">{{ val.overview }}</p>
-                  </div>
-                </div>
-              </div>
-          </div>
-          {% endif %}
-          {% endfor %}
-        </div>
+<div class="container">
+  <div class="row pb-4">
+    <form action="/" method="post">
+      <div class="input-group input-group-md">
+        <input type="text" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg" placeholder="{{ movie_name }}" name="movie">
+        <button class="btn btn-dark btn-ripple" type="submit">Search</button>
+      </div>
+    </form>
   </div>
+
+  <div class="row d-flex">
+    <div class="col-md-auto d-inline-block">
+      {% for val in result %}
+      {% if val.adult == False %}
+      <div class="card mb-3 shadow-sm" style="width: 75%">
+        <div class="row no-gutters">
+          <div class="col-md-2 embed-responsive embed-responsive-16by9 embed-responsive-item" style="width: 12%;">
+            <img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img img-fluid" alt="...">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h5>
+              <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>
+              <p class="card-text text-truncate">{{ val.overview }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
 {% endblock %}
