@@ -1,5 +1,6 @@
 from tmdbv3api import TMDb
 from tmdbv3api import Movie
+import requests, json, os
 
 
 def find_similar(movie_title):
@@ -55,3 +56,14 @@ def get_nowplaying():
     nowplaying = movie.now_playing()
 
     return nowplaying
+
+def get_data(Movie_ID):
+    API_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    query = 'https://api.themoviedb.org/3/movie/'+str(Movie_ID)+'?api_key='+API_key+'&language=en-US'
+    response =  requests.get(query)
+    if response.status_code==200: 
+    #status code ==200 indicates the API query was successful
+        array = response.json()
+        return (array)
+    else:
+        return ("error")

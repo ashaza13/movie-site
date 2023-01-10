@@ -8,7 +8,7 @@
     <div class="container">
         <form action="/" method="post">
             <div class="input-group input-group-md pb-3 rounded-pill">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Search for a movie..." name="movie">
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Search for a movie..." name="movieName">
                 <button class="btn btn-dark btn-ripple" type="submit">Search</button>
             </div>
         </form>
@@ -38,9 +38,9 @@
                     {% for val in popular %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <a href="{{ url_for('movie_page', movie_id=val.id) }}"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
                             <div class="card-body text-wrap" style="width:9.5rem;">
-                              <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
+                              <h6><a href="{{ url_for('movie_page', movie_id=val.id) }}" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
                         </div>
@@ -54,9 +54,9 @@
                     {% for val in top %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <a href="{{ url_for('movie_page', movie_id=val.id) }}"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
                             <div class="card-body text-wrap" style="width:9.5rem;">
-                              <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
+                              <h6><a href="{{ url_for('movie_page', movie_id=val.id) }}" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
                         </div>
@@ -70,9 +70,9 @@
                     {% for val in now %}
                     <div class="col-auto mb-3">
                         <div class="card" style="width: 9.5rem; border: 0;">
-                            <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                            <a href="{{ url_for('movie_page', movie_id=val.id) }}"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
                             <div class="card-body text-wrap" style="width:9.5rem;">
-                              <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
+                              <h6><a href="{{ url_for('movie_page', movie_id=val.id) }}" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                               <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                             </div>
                         </div>
@@ -91,9 +91,9 @@
                 {% for val in upcoming %}
                 <div class="col-auto mb-3">
                     <div class="card" style="width: 9.5rem; border: 0;">
-                        <a href="#"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
+                        <a href="{{ url_for('movie_page', movie_id=val.id) }}"><img src="https://image.tmdb.org/t/p/original/{{val.poster_path}}" class="card-img-top" alt="..."></a>
                         <div class="card-body text-wrap" style="width:9.5rem;">
-                          <h6><a href="#" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
+                          <h6><a href="{{ url_for('movie_page', movie_id=val.id) }}" class="text-decoration-none text-dark">{{ val.title }}</a></h6>
                           <p class="card-text"><small class="text-muted">{{ val.release_date }}</small></p>    
                         </div>
                     </div>
