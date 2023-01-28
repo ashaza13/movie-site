@@ -81,3 +81,12 @@ ul {
     top: 0;
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .7) 40%, #fff 70%);
 }
+
+.img-fluid {
+    height: 40vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+

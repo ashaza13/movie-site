@@ -5,7 +5,7 @@ import requests, json, os
 
 def find_similar(movie_title):
     tmdb = TMDb()
-    tmdb.api_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    tmdb.api_key = ""
     tmdb.language = 'en'
     tmdb.debug = True
     movie = Movie()
@@ -15,7 +15,7 @@ def find_similar(movie_title):
 
 def get_trending():
     tmdb = TMDb()
-    tmdb.api_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    tmdb.api_key = ""
     tmdb.language = 'en'
     tmdb.debug = True
 
@@ -26,7 +26,7 @@ def get_trending():
 
 def get_upcoming():
     tmdb = TMDb()
-    tmdb.api_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    tmdb.api_key = ""
     tmdb.language = 'en'
     tmdb.debug = True
 
@@ -37,7 +37,7 @@ def get_upcoming():
     
 def get_toprated():
     tmdb = TMDb()
-    tmdb.api_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    tmdb.api_key = ""
     tmdb.language = 'en'
     tmdb.debug = True
 
@@ -48,7 +48,7 @@ def get_toprated():
 
 def get_nowplaying():
     tmdb = TMDb()
-    tmdb.api_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    tmdb.api_key = ""
     tmdb.language = 'en'
     tmdb.debug = True
 
@@ -58,7 +58,7 @@ def get_nowplaying():
     return nowplaying
 
 def get_data(Movie_ID):
-    API_key = "fb30a4fbe49546ed501bce99179c0fdd"
+    API_key = ""
     query = 'https://api.themoviedb.org/3/movie/'+str(Movie_ID)+'?api_key='+API_key+'&language=en-US'
     response =  requests.get(query)
     if response.status_code==200: 
